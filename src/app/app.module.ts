@@ -40,6 +40,8 @@ import {
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   exports: [
@@ -78,11 +80,12 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatTooltipModule,
   ]
 })
-export class MaterialModule {}
+export class MaterialModule { }
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +93,7 @@ export class MaterialModule {}
     MaterialModule,
     FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthService],
+  bootstrap: [LoginComponent]
 })
 export class AppModule { }
