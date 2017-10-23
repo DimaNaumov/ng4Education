@@ -1,22 +1,24 @@
 <mat-toolbar color="primary">
   Angular Material 2 App
   <span class="example-spacer"></span>
-  <mat-icon>verified_user</mat-icon>
+  <mat-icon [ngClass]="!isAuthorized()? 'hide' : ''">verified_user</mat-icon>
 </mat-toolbar>
+<mat-progress-bar mode="indeterminate" [ngClass]="!inProgress? 'hide' : ''"></mat-progress-bar>
+
 <br>
 <mat-form-field>
   <input matInput placeholder="Login" [(ngModel)]="login" required>
 </mat-form-field>
 <br>
 <mat-form-field>
-  <input matInput placeholder="Enter your password" [(ngModel)]="password" [type]="hide ? 'password' : 'text'">
-  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+  <input matInput placeholder="Enter your password" [(ngModel)]="password" [type]="showPassword ? 'password' : 'text'">
+  <mat-icon matSuffix (click)="showPassword = !showPassword">{{showPassword ? 'visibility' : 'visibility_off'}}</mat-icon>
 </mat-form-field>
 <br>
-  <button mat-raised-button (click)="sendCredentials()">Sing in</button>
+  <button mat-raised-button (click)="signin()">Sing in</button>
 <br>
 <mat-toolbar color="primary">
-    Authorized status: {{authorized}}
+    Authorized status: {{isAuthorized()}}
 </mat-toolbar>
 <br>
 <mat-toolbar color="primary">
