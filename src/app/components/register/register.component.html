@@ -1,0 +1,17 @@
+<br>
+<mat-form-field>
+  <input matInput placeholder="Login" [(ngModel)]="login" required>
+</mat-form-field>
+<br>
+<mat-form-field>
+  <input matInput placeholder="Password" [(ngModel)]="password" required [type]="showPassword ? 'password' : 'text'">
+  <mat-icon matSuffix (click)="showPassword = !showPassword">{{showPassword ? 'visibility' : 'visibility_off'}}</mat-icon>
+</mat-form-field>
+<br>
+<mat-form-field>
+  <input matInput placeholder="Confirm password" [(ngModel)]="password2" required [type]="showPassword2 ? 'password' : 'text'">
+  <mat-icon matSuffix (click)="showPassword2 = !showPassword2">{{showPassword2 ? 'visibility' : 'visibility_off'}}</mat-icon>
+</mat-form-field>
+<br>
+  <button mat-raised-button color=(click)="register()">Register</button>
+<br>
