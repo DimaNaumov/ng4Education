@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { CanActivate }    from '@angular/router';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements CanActivate {
   authorized = false;
   login = "";
   password = "";
@@ -17,6 +18,7 @@ export class AuthService {
       return Promise.resolve({token: this.login + this.password});
     }
     else {
+      this.authorized = false;
       return Promise.reject("Invalid credentials");
     }
   }
@@ -32,4 +34,8 @@ export class AuthService {
     return this.authorized;
   }
 
+  canActivate() {
+    console.log('AuthGuard#canActivate called');
+    return this.isAuthorized();
+  }
 }
