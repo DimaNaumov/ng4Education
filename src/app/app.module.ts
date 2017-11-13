@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule}  from '@angular/forms';
 
@@ -25,7 +25,7 @@ import { RegisterComponent } from './components/register/register.component';
     MaterialModule,
     FormsModule,
     AppRoutingModule,
-    HttpModule
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

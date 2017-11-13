@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('ng4-education App', () => {
+describe('ng5-education App', () => {
   let page: AppPage;
 
   beforeEach(() => {
